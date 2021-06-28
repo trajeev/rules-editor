@@ -1,0 +1,11 @@
+.add-icon {
+    margin-right: 40px;
+}
+
+.text {
+    margin-left: 10px;
+    cursor: pointer;
+    &:hover {
+        border-bottom: 1px solid black;
+    }
+}

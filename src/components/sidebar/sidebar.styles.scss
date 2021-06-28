@@ -1,0 +1,35 @@
+.sidebar {
+    border: 1px solid black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30vh;
+    height: 100vh;
+    border-top: none;
+    z-index: 2;
+    background-color: #3e556d;
+    color: white;
+}
+
+.menu-closed {
+    border: 1px solid black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8vh;
+    height: 100vh;
+    border-top: none;
+    z-index: 2;
+    background-color: #3e556d;
+    color: white;
+}
+
+
+.menu-icon {
+    font-size: 1.5rem;
+    color: white;
+    float: left;
+    cursor: pointer;
+    position: relative;
+    top: 2vh;
+}
