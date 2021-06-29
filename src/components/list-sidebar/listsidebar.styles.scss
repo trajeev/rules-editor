@@ -1,11 +1,25 @@
 .list-sidebar-element {
     list-style: none;
-    margin-top: 3vh;
     font-size: 20px;
     text-align: left;
-    margin-top: 5vh;
+    padding: 2vh 0;
+    cursor: pointer;
+    position: relative;
+    left: -3vh;
+    &:hover {
+        background-color: #475d75;
+    }
+
+    .list-sidebar-text {
+        margin-left: 1vh;
+    }
 }
 
 .list-sidebar {
     margin-top: 10vh;
+}
+
+.menu-icon {
+    top: 0;
+    float: left
 }
