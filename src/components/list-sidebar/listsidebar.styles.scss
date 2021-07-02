@@ -2,6 +2,8 @@
     list-style: none;
     font-size: 20px;
     text-align: left;
+    // padding: 2vh 0;
+    margin: 2vh 0;
     padding: 2vh 0;
     cursor: pointer;
     position: relative;
@@ -20,11 +22,12 @@
     .list-sidebar-rule {
         list-style: none;
         cursor: pointer;
-        left: -3vh;
+        left: -4vh;
         text-align: left;
         position: relative;
         border-left: 5px solid rgb(115, 196, 178);
         padding-left: 5px;
+        padding: 1vh 1vh;
         &:hover {
             background-color: #475d75;
         }

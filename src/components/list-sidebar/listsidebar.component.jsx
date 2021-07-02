@@ -4,7 +4,7 @@ import {GiCheckboxTree} from 'react-icons/gi'
 import './listsidebar.styles.scss'
 import {RulesContext} from '../../App'
 
-const ListSideBar = () => {
+const ListSideBar = ({onclick}) => {
     const rules = useContext(RulesContext)
     return(
         <div className = "list-sidebar">
@@ -20,7 +20,7 @@ const ListSideBar = () => {
                 )}
                 <li className = "list-sidebar-element">
                     <span><AiOutlinePlusSquare /></span>
-                    <span className = "list-sidebar-text">Create Rules</span>
+                    <span className = "list-sidebar-text" onClick = {onclick}>Create Rules</span>
                 </li>
                 <li className = "list-sidebar-element">
                     <span><AiOutlineCloudUpload /></span>

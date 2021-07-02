@@ -4,7 +4,7 @@ import {GrMenu} from 'react-icons/gr'
 import ListSideBar from '../list-sidebar/listsidebar.component';
 import { IconContext } from 'react-icons';
 
-const SideBar = () => {
+const SideBar = ({onclick}) => {
     const [close, setToggle] = useState(true)
 
     const toggleMenu = () => {
@@ -19,7 +19,7 @@ const SideBar = () => {
             </div>:
             <div className = "sidebar">
                 <GrMenu color = "white" onClick = {toggleMenu}/>
-                <ListSideBar />
+                <ListSideBar onclick = {onclick}/>
             </div>
             }
         </div>
