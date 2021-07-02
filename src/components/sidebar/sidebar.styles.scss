@@ -3,11 +3,11 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 30vh;
+    width: 18vw;
     height: 100vh;
     border-top: none;
     z-index: 2;
-    background-color: #3e556d;
+    background-color: #2A3F54;
     color: white;
     border-color: 3e556d;
 }
@@ -17,20 +17,17 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 8vh;
+    width: 5vw;
     height: 100vh;
     border-top: none;
     z-index: 2;
-    background-color: #3e556d;
+    background-color: #2A3F54;
     color: white;
 }
 
 
 .menu-icon {
     font-size: 1.5rem;
-    color: white;
     float: left;
     cursor: pointer;
-    position: relative;
-    top: 2vh;
 }

@@ -1,0 +1,13 @@
+.bodymenu-element {
+    font-size: 1rem;
+    color: rgb(102, 97, 97);
+    margin-left: 5vw;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.Decisions, .Facts, .Validate, .Generate {
+    border-bottom: 3px solid rgb(52, 214, 101);
+    font-weight: bold;
+}

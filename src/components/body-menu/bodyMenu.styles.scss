@@ -1,13 +1,10 @@
 .bodymenu {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
     margin: 5vh 9vh;
     padding-bottom: 3vh;
     border-bottom: 1px solid black;
 }
 
-.bodymenu-element {
-    font-size: 1rem;
-    color: rgb(102, 97, 97);
-}
+

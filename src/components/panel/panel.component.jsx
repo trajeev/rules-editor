@@ -1,16 +1,35 @@
 import React from 'react';
-import Button from '../button/button.component';
+import Fact from '../fact/fact.component'
+import Decision from '../decision/decision.component';
+import Generate from '../generate/generate.component';
+import Validate from '../validate/validate.component';
 import './panel.styles.scss'
 
-const Panel = () => {
-    // const [facts, setFacts] = useState([])
+const Panel = ({menu}) => { 
+    let renderComponent 
+    
+    switch (menu) {
+        case 'Facts':
+            renderComponent = <Fact />
+            break
+        case 'Decisions':
+            renderComponent = <Decision  />
+            break
+        case 'Validate':
+            renderComponent = <Validate />
+            break
+        case 'Generate':
+            renderComponent = <Generate />
+            break
+        default:
+            renderComponent = <Fact />
+    }
+
     return (
-        <div className = "panel">
-            There are no facts to show
-            <Button name = 'Create Facts'/>
+        <div>
+            {renderComponent}
         </div>
-    )
-}
+)}
 
  
 export default Panel;
