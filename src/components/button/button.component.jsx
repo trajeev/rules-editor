@@ -1,8 +1,10 @@
 import React from 'react';
 import './button.styles.scss'
 
-const Button = (props) => (
-    <button className = "button">{props.name}</button>
-)
+const Button = ({name, ...otherProps}) => {
+    console.log(otherProps)
+    return(
+    <button className = "button" {...otherProps}>{name}</button>
+)}
  
 export default Button;

@@ -31,7 +31,7 @@ function App() {
         <div>
           <Header />
           <SideBar />
-          <AddRule onsubmit = {(event) => formSubmit(event)} onchange = {(event) => setRule(event.target.value)}/>
+          <AddRule onsubmit = {formSubmit} onchange = {(event) => setRule(event.target.value)}/>
         </div>: (showRule ? 
         <div>
           <Header />
@@ -41,7 +41,7 @@ function App() {
         <div>
           <Header />
           <SideBar />
-          <AddRule onsubmit = {(event) => formSubmit(event)} onchange = {(event) => setRule(event.target.value)}/>
+          <AddRule onsubmit = {formSubmit} onchange = {(event) => setRule(event.target.value)}/>
         </div>
         )
         }  

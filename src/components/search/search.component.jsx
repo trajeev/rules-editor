@@ -4,13 +4,13 @@ import Reset from '../reset/reset.component'
 import Button from '../button/button.component';
 import './search.styles.scss'
 
-const Search = () => (
+const Search = ({onclick}) => (
     <div className = "search"> 
-        <Add />
+        <Add onclick = {onclick}/>
         <Reset />
         <div className = "search-field">
             <input className = "search-input"></input>
-            <Button name = 'Search' className = 'button-search'/>
+            <Button name = 'Search'/>
         </div>
     </div>
 )

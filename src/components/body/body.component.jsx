@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import BodyMenu from '../body-menu/bodyMenu.component';
-import Search from '../search/search.component';
+// import Search from '../search/search.component';
 import Panel from '../panel/panel.component';
 import './body.styles.scss'
 
@@ -15,7 +15,7 @@ const Body = () => {
     return(
     <div className = "body"> 
         <BodyMenu onclick = {toggleBodyMenu} menu = {menu}/>
-        <Search />
+        {/* <Search /> */}
         <Panel menu = {menu}/>
     </div>
 )}

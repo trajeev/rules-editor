@@ -1,0 +1,42 @@
+$color: rgb(88, 88, 228);
+$element-width: 30%;
+
+@mixin pointers {
+    width: 8%;
+    color: $color;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.fact-element {
+    border: 1px solid gray;
+    width: 80%;
+    margin: auto;
+    margin-top: 5vh;
+    height: 5vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0px 0px 2px 0px black;
+
+    .fact-element-index {
+        width: 1%;
+        margin-left: 10px;
+    }
+
+    .fact-element-name {
+        width: $element-width;
+    }
+
+    .fact-element-type {
+        width: $element-width;
+    }
+
+    .fact-element-edit {
+        @include pointers()
+    }
+
+    .fact-element-remove {
+        @include pointers()
+    }
+}
