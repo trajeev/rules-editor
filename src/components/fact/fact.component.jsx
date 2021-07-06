@@ -27,6 +27,13 @@ const Fact = () => {
         showSetFact(true)
     }
 
+    const factRemove = (index) => {
+        // console.log(index)
+        const copy = [...facts]
+        copy.splice(index, 1)
+        setFacts(copy)
+    }
+
     return(
     <div>
         <Search onclick = {addClick}/>
@@ -47,7 +54,7 @@ const Fact = () => {
                     onchange = {handleChange}
                     onclick = {() => showSetFact(false)}
                 /> : 
-                <AllFacts facts = {facts} />
+                <AllFacts facts = {facts} remove = {factRemove}/>
             )
         }
     </div>

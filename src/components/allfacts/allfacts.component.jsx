@@ -1,7 +1,7 @@
 import React from 'react';
 import './allfacts.styles.scss'
 
-const AllFacts = ({facts}) => {
+const AllFacts = ({facts, remove}) => {
     console.log(facts)
     return (
     <div>
@@ -17,7 +17,7 @@ const AllFacts = ({facts}) => {
                         Edit
                     </span>
                 </div>
-                <div className = "fact-element-remove">
+                <div className = "fact-element-remove" onClick = {() => remove(index)}>
                     <span>
                         Remove
                     </span>    
