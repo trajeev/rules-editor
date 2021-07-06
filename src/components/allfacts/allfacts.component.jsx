@@ -6,12 +6,22 @@ const AllFacts = ({facts}) => {
     return (
     <div>
         {facts.map((fact, index) => (
-            <div className = "fact-element" key = {index}>
+            <div className = {`fact-element ${fact.type}`} key = {index}>
                 <div className = "fact-element-index">{index + 1}</div>
                 <div className = "fact-element-name">{fact.name}</div>
-                <div className = "fact-element-type">{fact.type}</div>
-                <div className = "fact-element-edit">Edit</div>
-                <div className = "fact-element-remove">Remove</div>
+                <div className = "fact-element-type">
+                    <span className = {`${fact.type}`}>{fact.type}</span>
+                </div>
+                <div className = "fact-element-edit">
+                    <span>
+                        Edit
+                    </span>
+                </div>
+                <div className = "fact-element-remove">
+                    <span>
+                        Remove
+                    </span>    
+                </div>
             </div>
         ))}
     </div>
