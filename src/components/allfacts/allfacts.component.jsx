@@ -1,8 +1,8 @@
 import React from 'react';
 import './allfacts.styles.scss'
 
-const AllFacts = ({facts, remove}) => {
-    console.log(facts)
+const AllFacts = ({facts, remove, edit}) => {
+    // console.log(facts)
     return (
     <div>
         {facts.map((fact, index) => (
@@ -12,7 +12,7 @@ const AllFacts = ({facts, remove}) => {
                 <div className = "fact-element-type">
                     <span className = {`${fact.type}`}>{fact.type}</span>
                 </div>
-                <div className = "fact-element-edit">
+                <div className = "fact-element-edit" onClick = {() => edit(index)}>
                     <span>
                         Edit
                     </span>
