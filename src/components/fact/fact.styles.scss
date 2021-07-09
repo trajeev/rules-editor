@@ -12,6 +12,7 @@
 .fact button {
     background-color: red;
     border-color: red;
+    outline: none;
 
     &:hover {
         background-color: rgb(236, 45, 45);
