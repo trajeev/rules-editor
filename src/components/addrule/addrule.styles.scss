@@ -6,7 +6,33 @@
     box-shadow: 0px 1px 4px rgb(87, 83, 83);
     border-radius: 5px;
     color: rgb(118, 162, 201);
+    position: absolute;
+    right: 20vw;
 
+    
+    .addrule-label {
+        color: rgb(44, 95, 119);
+        position: relative;
+        left:4%;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .addrule-form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    
+    input {
+        width: 60%;
+        height: 4.5vh;
+        border-radius: 5px;
+        border: 1px solid rgb(59, 59, 59);
+        outline: none;
+        color: gray;
+    }
     button {
         background-color: rgb(11, 121, 84);
         border: 1px solid rgb(11, 121, 84);
@@ -15,19 +41,6 @@
             background-color: rgb(35, 189, 137);
             border: 1px solid rgb(35, 189, 137);
         }
-    }
-
-    label {
-        color: rgb(44, 95, 119);
-        position: relative;
-        right:285px;
-        margin-bottom: 10px;
-    }
-
-    input {
-        width: 60%;
-        height: 4vh;
-        border-radius: 5px;
     }
 }
  

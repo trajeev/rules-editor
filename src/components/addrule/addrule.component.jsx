@@ -6,10 +6,10 @@ const AddRule = ({onsubmit, onchange}) => (
     <div className = "addrule">
         <h2>Add Rules</h2>
         <form onSubmit = {onsubmit}>
-            <div>
+            <div className = "addrule-label">
                 <label>Name</label>
             </div>
-            <div>
+            <div className = "addrule-form">
                 <input onChange = {onchange}></input>
                 <Button name = "Create"/>  
             </div>
