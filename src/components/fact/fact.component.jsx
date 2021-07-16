@@ -3,20 +3,23 @@ import Button from '../button/button.component';
 import AddFact from '../addfact/addfact.component';
 import AllFacts from '../allfacts/allfacts.component';
 import Search from '../search/search.component'
+import {addFact, editFact, removeFact} from '../../redux/facts/facts.action'
+import {connect} from 'react-redux'
 import './fact.styles.scss'
 
-const Fact = () => {
-    const [facts, setFacts] = useState([])
+const Fact = ({facts, addFact, editFact, removeFact}) => {
+    // const [facts, setFacts] = useState([])
     const [fact, setFact] = useState({name: '', type: ''})
     const [showFact, showSetFact] = useState(false)
     const [edit, setEdit] = useState(false)
     const factIndex = useRef()
     
-    const handleFactSubmit = (event) => {
+    const handleFactSubmit = event => {
         event.preventDefault()
         let copy = [...facts]
         copy = [...facts, fact]
-        setFacts(copy)
+        // setFacts(copy)
+        addFact(copy)
         setFact({name: '', type: ''})
         showSetFact(false)
     }
@@ -28,7 +31,8 @@ const Fact = () => {
         for (const key in editfact) {
             editfact[key] = fact[key]
         }
-        setFacts(copy)
+        // setFacts(copy)
+        editFact(copy)
         setFact({name: '', type: ''})
         showSetFact(false)
         setEdit(false)
@@ -45,13 +49,14 @@ const Fact = () => {
         setFact({...fact, [name] : value})
     }
 
-    const factRemove = (index) => {
+    const factRemove = index => {
         const copy = [...facts]
         copy.splice(index, 1)
-        setFacts(copy)
+        // setFacts(copy)
+        removeFact(copy)
     }
 
-    const factEdit = (index) => {
+    const factEdit = index => {
         setEdit(true)
         factIndex.current = index
         const copy = [...facts]
@@ -98,5 +103,15 @@ const Fact = () => {
         }
     </div>
 )}
+
+const mapStateToProps = state => ({
+    facts: state.facts.facts
+})
+
+const mapDispatchToProps = dispatch => ({
+    addFact: fact => dispatch(addFact(fact)),
+    editFact: facts => dispatch(editFact(facts)),
+    removeFact: facts => dispatch(removeFact(facts))
+})
  
-export default Fact;
+export default connect(mapStateToProps, mapDispatchToProps)(Fact);
