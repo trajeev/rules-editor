@@ -3,10 +3,8 @@ import * as api from '../../api/facts'
 
 export const addFact = fact => async (dispatch) => {
     try {
-        // console.log(fact)
         const {data} = await api.postFact(fact)
         dispatch({type: FactsActionTypes.ADD_FACT, payload: data})
-        
     } catch (error) {
         console.log(error.message)
     }
@@ -14,7 +12,6 @@ export const addFact = fact => async (dispatch) => {
 
 export const editFact = fact => async (dispatch) => {
     try {
-        console.log(fact)
         const {data} = await api.updateFact(fact)
         dispatch({type: FactsActionTypes.EDIT_FACT,payload: data})
     } catch (error) {
@@ -36,6 +33,6 @@ export const getFacts = () => async dispatch => {
         const {data} = await api.fetchFacts()
         dispatch({type: FactsActionTypes.FETCH_FACTS, payload: data})    
     } catch (error) {
-        console.log(error)
+        console.log(error.message)
     }
 }

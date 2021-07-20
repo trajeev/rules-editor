@@ -2,7 +2,6 @@ import React from 'react';
 import './allfacts.styles.scss'
 
 const AllFacts = ({facts, remove, edit}) => {
-    console.log(facts)
     return (
     <div>
         {facts.map((fact, index) => (
