@@ -1,0 +1,13 @@
+.list-sidebar-rule {
+    list-style: none;
+    cursor: pointer;
+    left: -4vh;
+    text-align: left;
+    position: relative;
+    border-left: 3px solid rgb(115, 196, 178);
+    padding-left: 5px;
+    padding: 1vh 1vh;
+    &:hover {
+        background-color: #475d75;
+    }
+}

@@ -1,11 +1,10 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {AiOutlinePlusSquare, AiOutlineCloudUpload} from 'react-icons/ai'
 import {GiCheckboxTree} from 'react-icons/gi'
+import RulesList from '../ruleslist/ruleslist.component';
 import './listsidebar.styles.scss'
-import {RulesContext} from '../../App'
 
 const ListSideBar = ({onclick}) => {
-    const rules = useContext(RulesContext)
     return(
         <div className = "list-sidebar">
             <ul>
@@ -13,11 +12,7 @@ const ListSideBar = ({onclick}) => {
                     <span><GiCheckboxTree /></span>
                     <span className = "list-sidebar-text">Ruleset</span>
                 </li>
-                {rules.map((rule, i) =>  (
-                    <ul>
-                        <li key = {i} className = "list-sidebar-rule">{rule}</li>
-                    </ul>)
-                )}
+                <RulesList />
                 <li className = "list-sidebar-element">
                     <span><AiOutlinePlusSquare /></span>
                     <span className = "list-sidebar-text" onClick = {onclick}>Create Rules</span>

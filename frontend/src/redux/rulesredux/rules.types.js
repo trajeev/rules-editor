@@ -1,0 +1,4 @@
+export const RULESACTIONTYPES = {
+    ADD_RULE: 'ADD_RULE',
+    SWITCH_RULE: 'SWITCH_RULE'
+}

@@ -1,22 +1,21 @@
-import React, {useState, createContext} from 'react'
+import React, {useState} from 'react'
 import './App.css';
 import Header from './components/header/header.component'
 import SideBar from './components/sidebar/sidebar.component';
 import Body from './components/body/body.component';
 import AddRule from './components/addrule/addrule.component';
-
-export const RulesContext = createContext()
+import {addRule} from './redux/rulesredux/rules.action'
+import {useDispatch, useSelector} from 'react-redux'
 
 function App() {
-  const [rules, setRules] = useState([])
   const [rule, setRule] = useState('')
   const [showRule, switchRule] = useState(false)
+  const rules = useSelector(state => state.rules.rules)
+  const dispatch = useDispatch()
 
   const formSubmit = (event) => {
     event.preventDefault()
-    let copy = [...rules]
-    copy = [...rules, rule]
-    setRules(copy)
+    dispatch(addRule(rule))
     switchRule(true)
   }
 
@@ -25,7 +24,6 @@ function App() {
   }
 
   return (
-    <RulesContext.Provider value = {rules}>
       <div className="App">
         {rules.length === 0 ? 
         <div>
@@ -46,7 +44,6 @@ function App() {
         )
         }  
       </div>
-    </RulesContext.Provider>
   );
 }
 
