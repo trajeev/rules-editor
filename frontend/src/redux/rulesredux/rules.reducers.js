@@ -1,7 +1,8 @@
 import {RULESACTIONTYPES} from './rules.types'
 
 const INITIAL_STATE = {
-    rules: []
+    rules: [],
+    currentRule: 0
 }
 
 export const rulesReducer = (state = INITIAL_STATE, action) => {
@@ -12,6 +13,10 @@ export const rulesReducer = (state = INITIAL_STATE, action) => {
                 rules: [...state.rules, action.payload]
             }
         case RULESACTIONTYPES.SWITCH_RULE:
+            return {
+                ...state, 
+                currentRule: action.payload
+            }
         default:
         return state
     }

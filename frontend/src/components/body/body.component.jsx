@@ -7,6 +7,7 @@ import './body.styles.scss'
 const Body = () => {
     const [menu, setMenu] = useState('Facts')
     const rules = useSelector(state => state.rules.rules)
+    const index = useSelector(state => state.rules.currentRule)
 
     const toggleBodyMenu = (li) => {
         setMenu(li)
@@ -14,7 +15,7 @@ const Body = () => {
 
     return(
     <div className = "body"> 
-        {rules[0]}
+        {rules[index]}
         <BodyMenu onclick = {toggleBodyMenu} menu = {menu}/>
         <Panel menu = {menu}/>
     </div>
