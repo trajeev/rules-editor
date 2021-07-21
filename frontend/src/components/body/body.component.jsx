@@ -15,7 +15,7 @@ const Body = () => {
 
     return(
     <div className = "body"> 
-        {rules[index]}
+        <div className = "body-index">{rules[index]}</div>
         <BodyMenu onclick = {toggleBodyMenu} menu = {menu}/>
         <Panel menu = {menu}/>
     </div>
