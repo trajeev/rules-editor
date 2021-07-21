@@ -8,6 +8,7 @@ const Body = () => {
     const [menu, setMenu] = useState('Facts')
     const rules = useSelector(state => state.rules.rules)
     const index = useSelector(state => state.rules.currentRule)
+    console.log(index);
 
     const toggleBodyMenu = (li) => {
         setMenu(li)
@@ -15,7 +16,7 @@ const Body = () => {
 
     return(
     <div className = "body"> 
-        <div className = "body-index">{rules[index]}</div>
+        <div className = "body-index">{rules[index].name}</div>
         <BodyMenu onclick = {toggleBodyMenu} menu = {menu}/>
         <Panel menu = {menu}/>
     </div>

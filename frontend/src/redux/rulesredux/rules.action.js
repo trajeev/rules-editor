@@ -5,9 +5,7 @@ export const addRule = rule => ({
     payload: rule
 })
 
-export const swtichRule = index => {
-    console.log(index)
-    return({
+export const swtichRule = index => ({
     type: RULESACTIONTYPES.SWITCH_RULE,
     payload: index
-})}
+})

@@ -6,7 +6,7 @@ import { swtichRule } from '../../redux/rulesredux/rules.action';
 const RulesList = () => {
     const rules = useSelector(state => state.rules.rules)
     const dispatch = useDispatch()
-
+    console.log(rules)
     const ruleswitch = (index) => {
         console.log(index)
         dispatch(swtichRule(index))
@@ -16,7 +16,7 @@ const RulesList = () => {
     <div>
         {rules.map((rule, i) =>  (
             <ul>
-                <li key = {i} className = "list-sidebar-rule" onClick = {() => (ruleswitch(i))}>{rule}</li>
+                <li key = {i} className = "list-sidebar-rule" onClick = {() => (ruleswitch(i))}>{rule.name}</li>
             </ul>)
         )}
     </div>
