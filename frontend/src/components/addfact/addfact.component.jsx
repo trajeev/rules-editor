@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import Button from '../button/button.component';
 import './addfact.styles.scss'
 
 const AddFact = ({onsubmit, onchange, onclick, onedit, fact, edit, objectList, handleObjectAdd, handleObjectRemove}) => {
     const submit = edit ? onedit : onsubmit
     const button = edit ? 'Save' : 'Add Fact'
+    const inputRef = useRef()
+    const objectRef = useRef()
+    useEffect(() => {
+        inputRef.current.focus()
+    },[])
+    useEffect(() => {
+        if (fact.type === 'object'){
+            objectRef.current.focus()
+        }
+    },[fact.type])
+
     return(
     <div className = "addfact-panel">
         <form onSubmit = {submit}>
@@ -12,7 +23,7 @@ const AddFact = ({onsubmit, onchange, onclick, onedit, fact, edit, objectList, h
                 <div className = "addfact-form">
                     <div className = "addfact-input">
                         <label>Name</label>
-                        <input name = "name" onChange = {onchange} value = {fact ? fact.name : ''}></input>
+                        <input name = "name" onChange = {onchange} value = {fact ? fact.name : ''} ref = {inputRef}></input>
                     </div>
                     <div className = "addfact-input">
                         <label>Type</label>
@@ -29,7 +40,7 @@ const AddFact = ({onsubmit, onchange, onclick, onedit, fact, edit, objectList, h
                     objectList.map((list, index) => {
                         return (
                         <div className = 'addfact-object'>
-                            <input name = 'key' placeholder = 'key'></input>
+                            <input name = 'key' placeholder = 'key' ref = {objectRef}></input>
                             <select name = 'value'>
                                 <option>Please Select...</option>
                                 <option>string</option>
