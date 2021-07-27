@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../button/button.component';
 import './addfact.styles.scss'
 
-const AddFact = ({onsubmit, onchange, onclick, onedit, fact, edit}) => {
+const AddFact = ({onsubmit, onchange, onclick, onedit, fact, edit, objectList, handleObjectAdd, handleObjectRemove}) => {
     const submit = edit ? onedit : onsubmit
     const button = edit ? 'Save' : 'Add Fact'
     return(
@@ -25,6 +25,25 @@ const AddFact = ({onsubmit, onchange, onclick, onedit, fact, edit}) => {
                         </select>
                     </div>
                 </div>
+                {fact.type === 'object' ? 
+                    objectList.map((list, index) => {
+                        return (
+                        <div className = 'addfact-object'>
+                            <input name = 'key' placeholder = 'key'></input>
+                            <select name = 'value'>
+                                <option>Please Select...</option>
+                                <option>string</option>
+                                <option>number</option>
+                                <option>boolean</option>
+                            </select>
+                            {objectList.length !== 1 && 
+                            <Button name = 'Remove' className = 'remove' onClick = {() => handleObjectRemove(index)}/>}
+                            {objectList.length - 1 === index && 
+                            <Button onClick = {handleObjectAdd} name = 'Add' className = 'add'/>}
+                        </div>
+                        )
+                    })
+                    : <div className = 'addfact-object'></div>}
                 <div className = "addfact-button">
                     <Button type = 'submit' name = {button}/>
                     <Button type = 'button' name = "Cancel" onClick = {onclick}/>

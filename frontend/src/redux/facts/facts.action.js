@@ -1,14 +1,19 @@
 import {FactsActionTypes} from './facts.types'
 import * as api from '../../api/facts'
 
-export const addFact = fact => async (dispatch) => {
-    try {
-        const {data} = await api.postFact(fact)
-        dispatch({type: FactsActionTypes.ADD_FACT, payload: data})
-    } catch (error) {
-        console.log(error.message)
-    }
-}
+// export const addFact = fact => async (dispatch) => {
+//     try {
+//         const {data} = await api.postFact(fact)
+//         dispatch({type: FactsActionTypes.ADD_FACT, payload: data})
+//     } catch (error) {
+//         console.log(error.message)
+//     }
+// }
+
+export const addFact = fact => ({
+    type: FactsActionTypes.ADD_FACT,
+    payload: fact
+})
 
 export const editFact = fact => async (dispatch) => {
     try {
@@ -19,14 +24,19 @@ export const editFact = fact => async (dispatch) => {
     }
 }
 
-export const removeFact = fact => async (dispatch) => {
-    try {
-        await api.deleteFact(fact)
-        dispatch({type: FactsActionTypes.REMOVE_FACT,payload: fact})
-    } catch (error) {
-        console.log(error.message)   
-    }
-}
+// export const removeFact = fact => async (dispatch) => {
+//     try {
+//         await api.deleteFact(fact)
+//         dispatch({type: FactsActionTypes.REMOVE_FACT,payload: fact})
+//     } catch (error) {
+//         console.log(error.message)   
+//     }
+// }
+
+export const removeFact = fact => ({
+    type: FactsActionTypes.REMOVE_FACT,
+    payload: fact
+})
 
 export const getFacts = () => async dispatch => {
     try {

@@ -1,4 +1,6 @@
 import {RULESACTIONTYPES} from './rules.types'
+import {FactsActionTypes} from '../facts/facts.types'
+import produce from 'immer'
 
 export const INITIAL_STATE = {
     rules: [],
@@ -18,7 +20,16 @@ export const rulesReducer = (state = INITIAL_STATE, action) => {
                 ...state, 
                 currentRule: action.payload
             }
+        case FactsActionTypes.ADD_FACT: 
+            return produce(state, draft => {
+                draft.rules[draft.currentRule].facts.push(action.payload)
+            })
+        // case FactsActionTypes.REMOVE_FACT: 
+        //     return produce (state, draft => {
+        //         draft.rules[draft.currentRule].facts
+        //     })
         default:
         return state
     }
 }
+

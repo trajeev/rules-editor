@@ -1,22 +1,21 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Button from '../button/button.component';
 import AddFact from '../addfact/addfact.component';
 import AllFacts from '../allfacts/allfacts.component';
 import Search from '../search/search.component'
-import {addFact, editFact, removeFact, getFacts} from '../../redux/facts/facts.action'
+import {addFact, editFact, removeFact} from '../../redux/facts/facts.action'
 import {useDispatch, useSelector} from 'react-redux'
 import './fact.styles.scss'
 
 const Fact = () => {
     const [fact, setFact] = useState({name: '', type: ''})
+    const [objectList, setObjectList] = useState([{key: '', value: ''}])
     const [showFact, showSetFact] = useState(false)
     const [edit, setEdit] = useState(false)
     const dispatch = useDispatch()
-    const facts = useSelector((state) => state.facts.facts)
-
-    useEffect(() => {
-        dispatch(getFacts())
-    }, [dispatch])
+    const rules = useSelector(state => state.rules.rules)
+    const index = useSelector(state => state.rules.currentRule)
+    const facts = rules[index].facts
     
     const handleFactSubmit = event => {
         event.preventDefault()
@@ -62,6 +61,16 @@ const Fact = () => {
         showSetFact(true)
     }
 
+    const handleObjectAdd = () => {
+        setObjectList([...objectList, {key: '', value: ''}])
+    }
+
+    const handleObjectRemove = index => {
+        const copy = [...objectList]
+        copy.splice(index,1)
+        setObjectList(copy)
+    }
+
     return(
     <div>
         <Search onclick = {addSubmit}/>
@@ -70,10 +79,13 @@ const Fact = () => {
             <AddFact 
                 edit = {edit}
                 fact = {fact}
+                objectList = {objectList}
                 onsubmit = {handleFactSubmit} 
                 onchange = {handleChange}
                 onedit = {onEditSubmit}
                 onclick = {buttonClick}
+                handleObjectAdd = {handleObjectAdd}
+                handleObjectRemove = {handleObjectRemove}
             />: 
              (<div className = "fact">
                 There are no facts to show
@@ -83,12 +95,15 @@ const Fact = () => {
                 <AddFact 
                     edit = {edit}
                     fact = {fact}
+                    objectList = {objectList}
                     onsubmit = {handleFactSubmit} 
                     onchange = {handleChange}
                     onedit = {onEditSubmit}
                     onclick = {buttonClick}
+                    handleObjectAdd = {handleObjectAdd}
+                    handleObjectRemove = {handleObjectRemove}
                 /> : 
-                <AllFacts facts = {facts} remove = {factRemove} edit = {factEdit}/>
+                <AllFacts facts = {facts} remove = {factRemove} edit = {factEdit} />
             )
         }
     </div>
