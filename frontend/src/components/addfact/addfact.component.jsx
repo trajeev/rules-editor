@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import Button from '../button/button.component';
 import './addfact.styles.scss'
 
-const AddFact = ({onsubmit, onchange, onclick, onedit, fact, edit, objectList, handleObjectAdd, handleObjectRemove}) => {
+const AddFact = ({onsubmit, onchange, onclick, onedit, fact, edit, objectList, handleObjectAdd, handleObjectRemove, handleObjectChange}) => {
     const submit = edit ? onedit : onsubmit
     const button = edit ? 'Save' : 'Add Fact'
     const inputRef = useRef()
@@ -40,8 +40,8 @@ const AddFact = ({onsubmit, onchange, onclick, onedit, fact, edit, objectList, h
                     objectList.map((list, index) => {
                         return (
                         <div className = 'addfact-object'>
-                            <input name = 'key' placeholder = 'key' ref = {objectRef}></input>
-                            <select name = 'value'>
+                            <input name = 'key' placeholder = 'key' ref = {objectRef} onChange = {(event) => handleObjectChange(index, event)}></input>
+                            <select name = 'value' onChange = {(event) => handleObjectChange(index,event)}>
                                 <option>Please Select...</option>
                                 <option>string</option>
                                 <option>number</option>

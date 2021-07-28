@@ -4,6 +4,7 @@ $btnColor: rgb(17, 53, 70);
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    align-items: center;
     .search-field {
         .search-input {
             width: 30vh;

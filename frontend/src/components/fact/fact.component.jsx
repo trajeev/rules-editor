@@ -5,6 +5,7 @@ import AllFacts from '../allfacts/allfacts.component';
 import Search from '../search/search.component'
 import {addFact, editFact, removeFact} from '../../redux/facts/facts.action'
 import {useDispatch, useSelector} from 'react-redux'
+import produce from 'immer';
 import './fact.styles.scss'
 
 const Fact = () => {
@@ -19,8 +20,13 @@ const Fact = () => {
     
     const handleFactSubmit = event => {
         event.preventDefault()
+        if (fact.type === 'object') {
+            const copy = {...fact, objectList}
+            console.log(copy)
+        }
         dispatch(addFact(fact))
         setFact({name: '', type: ''})
+        setObjectList([{key: '', value: ''}])
         showSetFact(false)
     }
 
@@ -70,6 +76,14 @@ const Fact = () => {
         copy.splice(index,1)
         setObjectList(copy)
     }
+    const handleObjectChange = (index, event) => {
+        const {name, value} = event.target  
+        setObjectList(
+            produce(draft => {
+                draft[index][name] = value
+            })
+        )
+    }
 
     return(
     <div>
@@ -86,6 +100,7 @@ const Fact = () => {
                 onclick = {buttonClick}
                 handleObjectAdd = {handleObjectAdd}
                 handleObjectRemove = {handleObjectRemove}
+                handleObjectChange = {handleObjectChange}
             />: 
              (<div className = "fact">
                 There are no facts to show
@@ -102,6 +117,7 @@ const Fact = () => {
                     onclick = {buttonClick}
                     handleObjectAdd = {handleObjectAdd}
                     handleObjectRemove = {handleObjectRemove}
+                    handleObjectChange = {handleObjectChange}
                 /> : 
                 <AllFacts facts = {facts} remove = {factRemove} edit = {factEdit} />
             )
